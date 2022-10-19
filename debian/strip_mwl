@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+$inputfile="catalan-i.dic";
+$ignore="CDVWYZ";
+
+open (INPUTFILE,"< $inputfile") || die "Could not open inputfile: $inputfile";
+
+while (<INPUTFILE>){
+    chomp;
+    ($root,$flags)=split('/');
+    if ( $flags ){
+	$flags=~s/[$ignore]*//g;
+    }
+    if ( $flags ){
+	print "$root/$flags\n";
+    } else {
+	print "$root\n";
+    }
+}
+
+close INPUTFILE;

@@ -1,0 +1,47 @@
+Source: softcatala-spell
+Maintainer: Jordi Mallach <jordi@debian.org>
+Uploaders: Agustin Martin Domingo <agmartin@debian.org>
+Section: text
+Priority: optional
+Build-Depends: aspell,
+               debhelper-compat (= 13),
+               dictionaries-common-dev,
+               ispell
+Standards-Version: 4.6.0.1
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/debian/softcatala-spell
+Vcs-Git: https://salsa.debian.org/debian/softcatala-spell.git
+Homepage: https://www.softcatala.org/wiki/Corrector_ortogr%C3%A0fic
+
+Package: icatalan
+Architecture: all
+Depends: ${misc:Depends},
+         ${ispell:Depends}
+Suggests: wcatalan
+Provides: ispell-dictionary
+Description: Catalan dictionary for ispell
+ This is the Catalan dictionary for ispell as put together by
+ Joan Moratinos using data from different sources.
+
+Package: wcatalan
+Architecture: all
+Depends: ${misc:Depends},
+         ${wordlist:Depends}
+Provides: wordlist
+Description: Catalan dictionary words for /usr/share/dict
+ This package provides the file /usr/share/dict/catala containing
+ an alphabetic list of Catalan words.
+ .
+ It was put together by Joan Moratinos using data from different sources.
+
+Package: aspell-ca
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+         ${aspell:Depends}
+Provides: aspell-dictionary
+Description: Catalan dictionary for aspell
+ This package contains all the required files to add support for the
+ Catalan language to the GNU Aspell spell checker.
+ .
+ It was put together by Joan Moratinos using data from different sources.

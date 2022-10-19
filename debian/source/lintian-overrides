@@ -1,0 +1,4 @@
+softcatala-spell source: national-encoding debian/aspell-ca.info-aspell
+softcatala-spell source: national-encoding debian/ca.dat
+softcatala-spell source: national-encoding debian/icatalan.info-ispell
+softcatala-spell source: national-encoding debian/myspell-ca.info-hunspell

@@ -1,0 +1,6 @@
+debian/ca.dat		usr/lib/aspell
+tmp-build/ca_affix.dat	usr/lib/aspell
+tmp-build/*.multi	usr/lib/aspell
+tmp-build/*.alias	usr/lib/aspell
+tmp-build/*.cwl.gz	usr/share/aspell
+tmp-build/ca.contents	usr/share/aspell

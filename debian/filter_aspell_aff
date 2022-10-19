@@ -1,0 +1,32 @@
+#!/usr/bin/perl -w
+
+my $change_count;
+
+while ( <STDIN> ){
+  chomp;
+  if ( /^(SFX|PFX)/ ) {
+    my $code     = $_;
+    my $comments = ( /\#/ ) ? $_ : '';
+    $code        =~ s/\#.*$//;
+    $comments    =~ s/^[^\#]*//;
+    my ($afx,$flag,$strip,$add,$match) = split (' ',$code);
+    if ( $match and $match eq '.' and $strip ne '0'){
+      $change_count++;
+      my $txt = "$afx $flag $strip $add $strip";
+      $txt .= "     $comments" if $comments;
+      print "$txt\n";
+    } else {
+      print "$_\n";
+    }
+  } else {
+    print "$_\n";
+  }
+}
+
+if ( $change_count ) {
+  print STDERR "filter_aspell_aff info: Changed $change_count flag entries\n";
+} else {
+  print STDERR " ******** =========================================\n";
+  print STDERR "   *** filter_aspell_aff ***: No changes. Is filter any longer needed?\n";
+  print STDERR " ******** =========================================\n";
+}

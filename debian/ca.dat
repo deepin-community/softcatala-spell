@@ -1,0 +1,10 @@
+# Catalan data file
+name ca
+charset iso8859-1
+special ' -*- · -*- - -*-
+soundslike generic
+affix          ca
+affix-compress true
+repl-table     ca_affix.dat
+sug-split-char -
+store-as lower

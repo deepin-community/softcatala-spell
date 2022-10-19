@@ -1,0 +1,586 @@
+softcatala-spell (0.20111230b-14) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on
+      dictionaries-common-dev.
+
+  [ Agustin Martin Domingo ]
+  * Use debhelper dh_* sequencer.
+  * Add some lintian overrides.
+  * debian/control:
+    - Add Rules-Requires-Root: no.
+    - Bump debhelper-compat to 13.
+    - Bump Standards-Version. No changes required.
+  * debian/watch: added a fake site to explain about current status of
+    package in upstream homepage. Thanks Eriberto Mota.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 05 Oct 2021 22:32:59 +0200
+
+softcatala-spell (0.20111230b-13) unstable; urgency=low
+
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 28 Dec 2020 18:22:30 +0100
+
+softcatala-spell (0.20111230b-12) unstable; urgency=medium
+
+  * Simplify debian/wcatalan.info-wordlist and declare as utf-8
+    (Closes: #901324).
+  * Use catalan as wordlist name. Fix symlink accordingly.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 11 Jun 2018 17:15:51 +0200
+
+softcatala-spell (0.20111230b-11) unstable; urgency=medium
+
+  * debian/control:
+    - Update Vcs-Browser and Vcs-Git for salsa migration.
+    - Bump Standards-Version. No changes required.
+  * Bump debhelper compat level to 11.
+  * debian/copyright: Use secure URI for copyright format.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 04 May 2018 16:10:59 +0200
+
+softcatala-spell (0.20111230b-10) unstable; urgency=medium
+
+  * Stop building myspell-ca, it is now a transitional package in
+    src:hunspell-ca (Closes: #860893).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 21 Apr 2017 16:00:31 +0200
+
+softcatala-spell (0.20111230b-9) unstable; urgency=medium
+
+  * debian/rules: Build in a reproducible and known to work LC_ALL=C
+    language environment.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 22 Jun 2015 13:01:29 +0200
+
+softcatala-spell (0.20111230b-8) unstable; urgency=medium
+
+  * debian/rules: Make the build reproducible.
+    Thanks Chris Lamb (Closes: #776970).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 09 Apr 2015 17:54:08 +0200
+
+softcatala-spell (0.20111230b-7) unstable; urgency=low
+
+  * debian/control:
+    - Make aspell-ca "Multi-Arch: foreign" (See aspell-en #763892).
+    - Update Vcs-Browser to cgit address.
+    - Bump Standards-Version. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 06 Oct 2014 15:11:19 +0200
+
+softcatala-spell (0.20111230b-6) unstable; urgency=medium
+
+  * 01_WORDCHARS_allow-middledot.diff: New patch to add "middledot" to
+    myspell WORDCHARS affix files (Closes: #623367). Was in ispellcat
+    and is now re-added since upstream is already using it.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Fri, 19 Sep 2014 16:53:42 +0200
+
+softcatala-spell (0.20111230b-5) unstable; urgency=low
+
+  * debian/control:
+    - Modify to use dictionaries-common-dev (>= 1.22.0) features
+      and recent (>= 1.23.3) debhelper snippets:
+      - ${ispell:Depends}, ${aspell:Depends}, ${hunspell:Depends}
+      - Deal with remove files in debhelper snippet.
+      - Better handle dir creation and removal.
+    - Bump Standards Version. No changes required.
+    - Canonicalize Vcs-Git.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 04 Mar 2014 19:56:56 +0100
+
+softcatala-spell (0.20111230b-4) unstable; urgency=low
+
+  * And back again to softcatala-spell name now that original package with
+    this source name has been accepted into unstable.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Thu, 28 Jun 2012 19:16:59 +0200
+
+ispellcat (0.20111230b-3) unstable; urgency=low
+
+  * Back to ispellcat source name to reach wheezy in time.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 26 Jun 2012 20:16:36 +0200
+
+softcatala-spell (0.20111230b-2) unstable; urgency=low
+
+  * Add aspell entry for Valencian. Fix aspell-autobuildhash stuff.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 18 Jun 2012 20:26:11 +0200
+
+softcatala-spell (0.20111230b-1) unstable; urgency=low
+
+  * New source tarball with fixes in myspell affix and dict files, new
+    list of Valencian extra words, README and upstream Changelog and
+    Copyright files.
+  * Install Valencian myspell and aspell dictionaries.
+  * debian/patches: Remove. No longer needed.
+  * No longer use some obsolete filters.
+  * Minor improvements and cleanups.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Sun, 17 Jun 2012 19:48:48 +0200
+
+softcatala-spell (0.20111230-1) unstable; urgency=low
+
+  * New upstream release (20061016 for ispell, 20111230 for myspell).
+  * Change source package name to “softcatala-spell”.
+  * Fix some utf-8 sed substitutions and add a few extra ones.
+  * Rewrite copyright file using machine-readable format 1.0.
+  * Drop dependencies on debconf, let ${misc:Depends} take care of that.
+  * Mention LibreOffice instead of OpenOffice.org in the package description.
+  * Wrap long fields.
+  * Remove duplicate Priority fields.
+  * Drop ancient conflict on openoffice.org 1.0.3.
+  * Bump to debhelper compat v9.
+  * Add DEP-3 patch header.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 14 Jun 2012 16:27:05 +0200
+
+ispellcat (0.6-13) unstable; urgency=low
+
+  * Make a 3.0 (quilt) package.
+  * catalan-m.aff_add-explicit-wordchars.patch: New patch
+    to add explicit WORDCHARS line  with "·-'"
+  * debian/control: Bump Standards-Version. No changes required.
+  * debian/rules: Make sure catalan-i.stat is removed in clean target.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 30 May 2012 15:19:54 +0200
+
+ispellcat (0.6-12) unstable; urgency=low
+
+  * Use auto-compat feature to avoid modification of placeholders
+    shipped under /var by maintainer scripts. Needs to Build-Depend
+    on dictionaries-common-dev (>= 1.11.2).
+  * debian/control:
+    - Do not provide hunspell dictionary.
+    - Improve myspell-ca "Suggests" line.
+  * debian/rules:
+    - Fix lintian debian-rules-missing-recommended-target build-{arch,indep}.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 14 Sep 2011 14:57:18 +0200
+
+ispellcat (0.6-11) unstable; urgency=low
+
+  * Build Depends on at least dictionaries-common-dev (>= 1.10.5)
+    to stop installing update-openoffice-dicts snippets.
+  * Bump Standards-version. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 20 Jun 2011 14:18:50 +0200
+
+ispellcat (0.6-10) unstable; urgency=low
+
+  * Make sure we no longer create Mozilla* symlinks in new destdir
+    by using installdeb-myspell (> 1.4).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Wed, 25 Nov 2009 13:28:04 +0100
+
+ispellcat (0.6-9) unstable; urgency=low
+
+  * Rebuild against dictionaries-common.dev 1.3.1 to have
+    mozilla symlinks fixed.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 25 Aug 2009 17:07:50 +0200
+
+ispellcat (0.6-8) unstable; urgency=low
+
+  * Bump Standards Version to 3.8.3. No changes required.
+  * Install myspell dicts in new location. Use new
+    installdeb-myspell (at least 1.3) for this and for
+    compatibility symlinks (Closes: #541942).
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 25 Aug 2009 15:27:55 +0200
+
+ispellcat (0.6-7) unstable; urgency=low
+
+  * debian/*.info-*spell, debian/control:
+    - Do not explicitly add '-d <lang>' to ispell-args. New
+      dictionaries-common will take care of that.
+  * debian/control:
+    - Build Dep on at least dictionaries-common-dev 1.2 to use
+      new debhelper snippets.
+  * Raise debhelper compat level to 7. Use dh_prep.
+  * Raise Standards-Version to 3.8.1. No changes required.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Mon, 16 Mar 2009 12:22:25 +0100
+
+ispellcat (0.6-6) unstable; urgency=low
+
+  * Use 7bit Homepage link (Closes: #488676).
+  * Convert wcatalan wordlist to utf-8 (Closes: #384417).
+  * Add ${misc:Depends} to packages Depends, useful in case
+    any of the dh_* scripts implies aditional dependencies.
+  * Use dictionaries-common extra registration support for
+    myspell/hunspell dicts.
+  * Make myspell-ca provide hunspell-ca and friends.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 17 Feb 2009 13:55:04 +0100
+
+ispellcat (0.6-5) unstable; urgency=low
+
+  * Make sure no md5sums are added for variable /var/lib/{a,i}spell stuff.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 23 Sep 2008 11:02:30 +0200
+
+ispellcat (0.6-4) unstable; urgency=low
+
+  * debian/strip_mwl:
+    - Use catalan-i.dic instead of catalan-m.dic.
+  * debian/filter_aspell_aff:
+    - New perl script to fix some buggy aspell flag entries.
+  * debian/rules:
+    - Use debian/filter_aspell_aff to filter catalan-m.aff.
+    - Use tr to handle replacement of extraneous U+0095 characters
+      to U+00B7.
+    - Do not filter out numeric flags for aspell.
+  * debian/control:
+    - Added Vcs entries to the new SVN locations.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>  Tue, 01 Jul 2008 18:00:43 +0200
+
+ispellcat (0.6-3) unstable; urgency=low
+
+  * Try to get max compression from prezip and gzip (LP #73302).
+  * Bump Standards-Version to 3.8.0 (no changes needed).
+  * Make wcatalan priority optional, matching most other wordlist
+    packages.
+  * Add a Homepage field.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 13 Jun 2008 17:22:20 +0200
+
+ispellcat (0.6-2) unstable; urgency=low
+
+  * catalan-m.dic: replace a few extraneous U+0095 characters by U+00B7,
+    which is the correct middle dot character.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 11 Jun 2008 19:29:17 +0200
+
+ispellcat (0.6-1) unstable; urgency=low
+
+  [ Jordi Mallach ]
+  * New upstream release (20061016 for ispell, 20080609 for myspell).
+    - includes words suggested by Robert (closes: #467292).
+  * Forward port Agustín's patch from 0.5, and submitted it upstream.
+  * Use sort -u instead of uniq to remove repeated words from wcatalan,
+    slightly reducing the wordlist size. Thanks Marc Coll and Agustín
+    (closes: #454772).
+  * icatalan.docs: removed, no longer needed.
+
+  [ Agustín Martín Domingo ]
+  * debian/control:
+    - Bumped standards version to 3.7.3. No changes needed.
+    - Updated to use the new iceape-browser, iceweasel and icedove names.
+  * debian/copyright improved.
+  * Removed trailing whitespace in control, rules, copyright and changelog.
+  * Move reconfigure compat initialization from config to
+    postinst. debian/aspell-ca.overrides is no longer needed.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 10 Jun 2008 00:00:03 +0200
+
+ispellcat (0.5-3) unstable; urgency=low
+
+  * debian/control:
+    - fix typo in aspell-ca's description (thanks Simon Waters,
+      closes: #362739).
+    - make icatalan Architecture: all.
+    - bump Standards-Version to 3.7.0.0 (no changes required).
+  * debian/rules: switch to autogenerated ispell hash. Don't install it
+    at build time; make the necessary changes for dictionaries-common to
+    generate it on postinst.
+  * debian/icatalan.links: add extra ispell links.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 27 Apr 2006 03:31:35 +0200
+
+ispellcat (0.5-2) unstable; urgency=low
+
+  * debian/ca.dat: don't allow . at the end of words, it causes
+    unexpected results.
+  * debian/control: add Agustín to Uploaders.
+  * debian/rules:
+    - strip words with numbers and dots. Generates some false positives,
+      but fixes the problems with some words ending with a dot being
+      marked as misspellings (closes: #362914).
+    - get rid of a UUOC.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 27 Apr 2006 00:10:58 +0200
+
+ispellcat (0.5-1) unstable; urgency=low
+
+  [ Agustin Martin Domingo ]
+  * catalan-m.aff,debian/ca.dat, debian/rules, debian/aspell-ca.config:
+    Improve aspell stuff (closes: #345242, #311391):
+    - Use the complete dictionary for aspell with affix compression.
+    - Replace catalan-m.aff by the one from aspell site to fix some aspell
+      problems. This should work well for myspell.
+    - Allow . at end of words in aspell.
+    - For aspell strip words containing numbers or '.' not at end of word.
+    - Make sure aspell hash is rebuilt on package reconfiguration. Add
+      overrides file to keep lintian happy.
+  * debian/rules: Make sure no cruft is left on purge (closes: #353300).
+  * debian/control: Update dependencies for aspel-ca and myspell-ca.
+
+  [ Jordi Mallach ]
+  * New upstream release (20041027 for ispell, 20051227 for myspell)
+  * Apply Agustín's changes to the new myspell .aff file.
+  * debian/strip_mwl: use the more complete myspell .dic file to generate the
+    wordlist.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue,  4 Apr 2006 11:01:23 +0200
+
+ispellcat (0.4-6) unstable; urgency=low
+
+  * debian/control:
+    - build-depend on aspell again for prezip (closes: #330714).
+    - bump Standards-Version to 3.6.2.0, no changes needed.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 30 Sep 2005 01:14:00 +0200
+
+ispellcat (0.4-5) unstable; urgency=low
+
+  * The "That POP THE TRUNK business had me too busy to properly do
+    aspell transitions" release.
+  * debian/rules: install aspell-ca files in the right dir
+    (closes: #325358), ACK doko's NMU.
+  * debian/dirs: adjust dirs.
+  * Switch to autobuilt aspell dictionary hashes, as advised by Brian Nelson
+    (closes: #319680).
+    - debian/control:
+      + add debconf-2.0 alternatives to all debconf dependencies.
+      + aspell-ca Provides: aspell-dictionary.
+      + aspell-ca Depends: on aspell (>= 0.60.3-3).
+      + don't build-depend on aspell.
+    - debian/rules:
+      + necessary changes for aspell-autobuildhash.
+      + move aspell-ca to binary-indep.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 28 Sep 2005 18:29:24 +0200
+
+ispellcat (0.4-4.1) unstable; urgency=low
+
+  * Fix target directory for aspell dictionaries (closes: #325358).
+
+ -- Matthias Klose <doko@debian.org>  Tue, 13 Sep 2005 10:49:19 +0000
+
+ispellcat (0.4-4) unstable; urgency=low
+
+  * The "Finnish sea is made of SWEET water!" release.
+  * debian/control:
+    - adjust build-depends and depends to aspell (>= 0.60.3-2) for the C++
+      transition.
+    - change priority of dictionaries to "optional", per the Dictionaries
+      Policy (closes: #301767).
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 12 Jul 2005 09:42:46 +0200
+
+ispellcat (0.4-3) unstable; urgency=low
+
+  * Transition to Aspell 0.60 (closes: #295012).
+  * debian/control:
+    + build-depend on aspell-bin (>> 0.60).
+    + change Provides: from aspell-dictionary to aspell6-dictionary.
+  * debian/aspell-ca.dirs: updated.
+  * debian/rules: install aspell-ca files into /usr/lib/aspell-0.60/.
+  * debian/copyright: recoded as UTF-8.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 16 Feb 2005 00:04:19 +0100
+
+ispellcat (0.4-2) unstable; urgency=low
+
+  * Apply patch from Guillem Jover:
+    - add UTF-8 support.
+    - remove Aspell-Locales.
+    - change language descriptions so the show up ok in Debconf under
+      UTF-8 terminals.
+    - add some missing OtherChars.
+    - remove redundant and invalid AdditionalChars.
+    Many thanks, Guillem! (closes: #286985)
+  * debian/wcatalan.info-wordlist: remove "8bit" suffixes to the wordlist
+    names.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 29 Jan 2005 18:51:30 +0100
+
+ispellcat (0.4-1) unstable; urgency=low
+
+  * New upstream release (20030528 for ispell, 20040130 for myspell).
+  * debian/control: transition to the new dictionaries-common .config files
+    (thanks, Agustín Martín Domingo; closes: #232183, #232185).
+    + make icatalan and wcatalan depend on dictionaries-common (>= 0.20).
+    + tighten dictionaries-common-dev build-dependency to (>= 0.20).
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 11 Feb 2004 14:50:38 +0100
+
+ispellcat (0.3-3) unstable; urgency=low
+
+  * debian/control: tighten build-deps on dictionaries-common-dev to
+    (>= 0.16.0) due to dictionaries policy changes.
+  * debian/icatalan.links: add required link to support Abiword's Enchant.
+  * debian/icatalan.info-ispell: fix Language: so Debconf can display it
+    correctly.
+  * debian/rules:
+    + use installdeb-myspell.
+    + don't create myspell .diff and .aff links.
+  * debian/myspell.post{inst,rm}: removed, handled by installdeb-myspell now.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri,  2 Jan 2004 02:59:25 +0100
+
+ispellcat (0.3-2) unstable; urgency=low
+
+  * debian/control: sync more descriptions with other dictionary packages.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 19 Nov 2003 16:34:31 +0100
+
+ispellcat (0.3-1) unstable; urgency=low
+
+  * New upstream release (20030528 for ispell, 20031009 for myspell).
+  * The source package now includes a myspell dictionary/affixes list.
+  * debian/changelog: recoded as UTF-8.
+  * debian/control:
+    + removed the leading "The" from the short descriptions.
+    + add a new binary package: myspell-ca. Work based on Josep Monés i
+      Teixidor's unofficial myspell-ca package. Thanks!
+    + bump Standards-Version to 3.6.1.0.
+  * debian/copyright: change upstream download url to Joan's homepage.
+  * debian/myspell-ca.info-myspell: new info file for myspell-ca.
+  * debian/rules: install new myspell stuff.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 17 Nov 2003 16:40:40 +0100
+
+ispellcat (0.2-3) unstable; urgency=low
+
+  * debian/aspell-ca.info-aspell: fix Casechars, Not-Casechars, Otherchars
+    and Additionalchars, they were missing some Catalan characters.
+  * debian/icatalan.info-spell: likewise.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 22 Jan 2003 21:56:20 +0100
+
+ispellcat (0.2-2) unstable; urgency=low
+
+  * debian/ca.dat: aspell definition file for Catalan. Thanks to Agustín
+    Martín Domingo for the tips on this.
+  * debian/aspell-ca.aspell-info: info file for aspell-ca, from Agustín.
+  * debian/control:
+    + add Build-Depends: on aspell-bin (>> 0.50).
+    + add a binary section for aspell-ca.
+    + change priority of wcatalan from optional to extra.
+  * debian/rules: create a new aspell-ca package, basing it on ispell-da.
+  * debian/wcatalan.dirs: added aspell-ca dirs.
+  * debian/wcatalan.docs: removed.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 21 Jan 2003 18:08:02 +0100
+
+ispellcat (0.2-1) unstable; urgency=low
+
+  * New upstream version, from different authors. From now, we're using
+    Softcatalà's new ispell dictionary, which is more complete and
+    maintained.
+  * debian/{control,copyright}: adapt descriptions and copyright noticed for
+    the new authors.
+  * debian/control:
+    + bump debhelper's Build-Depend to (>= 4.0.0).
+    + Standards-Version: 3.5.8.0 (no changes).
+  * debian/rules:
+    + change build rules for the new filenames.
+    + use debian/strip_mwl to generate catalan.words.debian.
+    + move arguments to dh_installdocs to package.docs.
+    + remove DH_COMPAT.
+  * debian/compat: use DH_COMPAT=4.
+  * debian/strip_mwl: new script from Agustín Martín Domingo. Helps stripping
+    the worldlist from 200Mb to 7, by discarding some flags.
+  * debian/{LEEME.licencia,README}: removed.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 29 Nov 2002 12:15:03 +0100
+
+ispellcat (0.1-7) unstable; urgency=low
+
+  * Rebuild against recent dictionaries-common-dev.
+  * debian/control: Build-Depend: on dictionaries-common-dev (>= 0.8.4).
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 31 Oct 2002 15:17:46 +0100
+
+ispellcat (0.1-6) unstable; urgency=low
+
+  * debian/control: oops, forgot to lower Pre-Depends: dictionaries-common
+    to simple Depends:.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 16 Oct 2002 14:05:25 +0200
+
+ispellcat (0.1-5) unstable; urgency=low
+
+  * debian/control: Standards-Version: 3.5.7.0.
+  * debian/rules: use binary-indep to build wcatalan.
+  * Integrated changes from the dict-common team. The following changes were
+    done by Agustín Martín Domingo.
+  * Adapted control file to the new policy.
+  * Set wcatalan priority to optional as it should be
+  * Removed postinst and prerm for icatalan and wcatalan.
+  * Adapted rules file to use the debhelper like helpers from the new
+    policy support.
+  * Added files icatalan.info-ispell and icatalan.info-wordlist as
+    required by policy.
+  * Added a Pspell-Ispell field to icatalan.info-ispell file with contents
+    'ca iso8859-1'. Since we use installdeb-ispell this will autogenerate
+    the appropiate pspell-ispell pwli files.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 14 Oct 2002 15:33:02 +0200
+
+ispellcat (0.1-4) unstable; urgency=low
+
+  * debian/control:
+    + added Provides: ispell-dictionary to icatalan
+      (closes: #149852, thanks Jaume).
+    + Replace "ç" with "c" in Joan Dolç's surname, to make the
+      package descriptions ASCII-only (closes: #147698).
+  * debian/changelog: removed Emacs local variables.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 13 Jun 2002 14:08:50 +0200
+
+ispellcat (0.1-3) unstable; urgency=low
+
+  * The "typo fixing" release.
+  * debian/{changelog,control,copyright}: language names should be
+    capitalized in English (closes: #124747, #125472). Thanks, Matt!
+  * debian/rules: misc. cleanups.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 18 Dec 2001 11:39:35 +0100
+
+ispellcat (0.1-2) unstable; urgency=low
+
+  * New Maintainer.
+  * debian/control:
+    + Standards-Version: 3.5.6.0.
+    + added versioned Build-Dependency for debhelper 3.0.0.
+    + set Maintainer: to me.
+  * debian/rules:
+    + DH_COMPAT=3.
+    + substitute `pwd` calls with $(CURDIR).
+    + removed dh_installdebconf call.
+    + install debian/README with the docs too.
+  * debian/copyright:
+    + added a note about me taking over.
+    + removed "()" from "Authors", so that nitpicking program called
+      lintian shuts up.
+    + added a pointer to LEEME.licencia.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 27 Aug 2001 17:18:37 +0200
+
+ispellcat (0.1-1) unstable; urgency=low
+
+  * Initial Release.
+  * debian/rules: upstream catala.hash do not conform with current
+    buildhash. Rebuilding catala.hash as catala.debian.hash and
+    installing it.
+  * debian/rules: need to expand the Catalan wordlist. It still has the
+    /K suffix applied
+  * Upstream author agrees to put the package under the GPL. Added
+    license notice.
+  * Added an emacs snippet to register the Catalan dictionary under
+    emacs. This modifies ispell-dictionary-alist, but unfortunately
+    the menus are not modified under emacs > 19. At least it can be
+    selected with ispell-change-dictionary.
+
+ -- Agustín Martín Domingo <agmartin@debian.org>  Thu, 10 May 2001 13:19:33 +0200

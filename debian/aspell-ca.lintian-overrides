@@ -1,0 +1,4 @@
+aspell-ca: national-encoding usr/lib/aspell/ca.dat
+aspell-ca: national-encoding usr/lib/aspell/ca_affix.dat
+aspell-ca: national-encoding var/lib/dictionaries-common/aspell/aspell-ca
+aspell-ca: wrong-section-according-to-package-name aspell-ca => localization

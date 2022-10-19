@@ -1,0 +1,73 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# Make sure build is always done in a reproducible and working
+# language environment
+LC_ALL = C
+export LC_ALL
+
+TMP_BUILD    = tmp-build
+
+%:
+	dh $@
+
+
+override_dh_auto_build:
+	mkdir -p $(TMP_BUILD)
+
+#       -- icatalan ispell dictionary
+	install -m 644 catalan-i.aff $(TMP_BUILD)/catala.aff
+	gzip --best -cn catalan-i.dic > $(TMP_BUILD)/catala.mwl.gz
+
+#       -- wcatalan wordlist.
+#       catalan.hash is needed first for wcatalan expansion.
+	buildhash catalan-i.dic $(TMP_BUILD)/catala.aff $(TMP_BUILD)/catala.hash
+
+#	Strip wordlist to have a reasonable size.
+	perl debian/strip_mwl | ispell -d $(TMP_BUILD)/catala -e | \
+		tr -s ' ' '\n' | grep -v ^[0-9] | sort -u | \
+		iconv -f latin1 -t utf-8 > $(TMP_BUILD)/catalan
+
+#	-- myspell-ca myspell/hunspell dictionary
+	install -m 644 catalan-m.dic           $(TMP_BUILD)/ca_ES.dic
+	install -m 644 catalan-m.aff           $(TMP_BUILD)/ca_ES.aff
+	install -m 644 catalan-valencian-m.dic $(TMP_BUILD)/ca_ES-valencia.dic
+	install -m 644 catalan-valencian-m.aff $(TMP_BUILD)/ca_ES-valencia.aff
+
+#	-- aspell-ca aspell dictionary
+	install -m 644 catalan-m.aff      $(TMP_BUILD)/ca_affix.dat
+	install -m 644 debian/ca.dat      $(TMP_BUILD)
+	install -m 644 debian/ca.contents $(TMP_BUILD)
+
+	LANG=C sort $(TMP_BUILD)/ca_ES.dic | \
+		grep -v -e ^[a-zA-Z]*[0-9] -e '\.' | \
+		prezip -s -c | gzip --best -cn > $(TMP_BUILD)/ca-common.cwl.gz
+
+	LANG=C sort catalan-valencian-extra-a.dic | \
+		grep -v -e ^[a-zA-Z]*[0-9] -e '\.' | \
+		prezip -s -c | gzip --best -cn > $(TMP_BUILD)/ca-valencia-mes.cwl.gz
+
+# 	Catalan common
+	echo "add ca-common.rws"    > $(TMP_BUILD)/ca-general.multi
+	echo "add ca-general.multi" > $(TMP_BUILD)/ca.alias
+	echo "add ca-general.multi" > $(TMP_BUILD)/catalan.alias
+	echo "add ca-general.multi" > $(TMP_BUILD)/catalan-general.alias
+	echo "add ca-general.multi" > $(TMP_BUILD)/catala.alias
+	echo "add ca-general.multi" > $(TMP_BUILD)/català.alias
+
+#	Valencia
+	echo "add ca-common.rws"       >  $(TMP_BUILD)/ca-valencia.multi
+	echo "add ca-valencia-mes.rws" >> $(TMP_BUILD)/ca-valencia.multi
+	echo "add ca-valencia.multi  " >  $(TMP_BUILD)/catalan-valencia.alias
+
+override_dh_auto_clean:
+	rm -rf $(TMP_BUILD)
+	rm -f core *.hash *.stat *.cnt
+	dh_auto_clean
+
+override_dh_auto_install:
+	installdeb-ispell   -picatalan
+	installdeb-aspell   -paspell-ca
+	installdeb-wordlist -pwcatalan

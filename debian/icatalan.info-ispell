@@ -1,0 +1,35 @@
+Language: catala TeX (Catalan Tex)
+Hash-Name: catala
+Emacsen-Name: catala-tex
+Debconf-Display: no
+Casechars: [A-ZÀÁÃÈÉËÍÏÎÑÒÓÖÚÜÇa-zàáãèéëíïîñòóöúüç]
+Not-Casechars: [^A-ZÀÁÃÈÉËÍÏÎÑÒÓÖÚÜÇa-zàáãèéëíïîñòóöúüç]
+Otherchars: [---'.·]
+Many-Otherchars: yes
+Ispell-Args:-B
+Additionalchars: ÀÁÃÈÉËÍÏÎÑÒÓÖÚÜÇàáãèéëíïîñòóöúüç
+Extended-Character-Mode: ~tex
+Coding-System: iso-8859-1
+
+Language: catala8 (Catalan 8 bits)
+Hash-Name: catala
+Emacsen-Name: catala8
+Casechars: [A-ZÀÁÃÈÉËÍÏÎÑÒÓÖÚÜÇa-zàáãèéëíïîñòóöúüç]
+Not-Casechars: [^A-ZÀÁÃÈÉËÍÏÎÑÒÓÖÚÜÇa-zàáãèéëíïîñòóöúüç]
+Otherchars: [---'.·]
+Many-Otherchars: yes
+Additionalchars: ÀÁÃÈÉËÍÏÎÑÒÓÖÚÜÇàáãèéëíïîñòóöúüç
+Ispell-Args: -B
+Extended-Character-Mode: ~list
+Coding-System: iso-8859-1
+Auto-Compat: catala
+
+Language: catala-utf8 (Catalan utf-8)
+Hash-Name: catala
+Emacsen-Name: catala-utf8
+Debconf-Display: no
+Emacs-Display: no
+Jed-Display: no
+Ispell-Args: -B
+Extended-Character-Mode: ~utf8
+Coding-System: utf-8

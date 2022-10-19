@@ -1,0 +1,4 @@
+version=4
+# https://people.debian.org/~eriberto/#fake-packages
+opts=dversionmangle=s/.*/0.No-Release/ \
+https://people.debian.org/~eriberto/ FakeWatchNoUpstreamReleaseForThisPackage-(\d\S+)\.gz

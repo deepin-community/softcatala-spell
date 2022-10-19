@@ -1,0 +1,43 @@
+README for softcatala-spell source tarball
+==========================================
+
+Tools for Catalan spell-checking
+
+Copyright (C) 2002-2011 Joan Moratinos <jmo@softcatala.org>
+
+http://www.softcatala.org/wiki/Corrector_ortogr%C3%A0fic
+
+About this source tarball
+=========================
+
+This source tarball containing some tools for Catalan spell-checking
+has been bundled together by Jordi Mallach <jordi@debian.org> and
+Agustin Martin Domingo <agmartin@debian.org> after selected files from 
+upstream SVN repo (svn://softcatala.org/corrector, stuff under
+trunk/resultats).
+
+ispell (catalan-i.aff, catalan-i.dic):
+--------------------------------------
+This contains ancient 20061016 version because of some problems with
+last version.
+
+myspell/hunspell (catalan-m.aff, catalan-m.dic,
+catalan-valencian-m.aff, catalan-valencian-m.dic):
+--------------------------------------------------
+This contains 20111230 version with some minor changes,
+ - Explicit "WORDCHARS .-'" line added to affix files.
+ - Fixed buggy ^(rigués|somrigués) lines in catalan-m.dic. Old
+   20061016 as been restored (Q flag has not been changed across both
+   releases). 
+
+aspell:
+-------
+Added 20111230 catalan-valencian-extra-a.dic with extra Catalan
+Valencian words. Mostly for use with aspell together with a common
+Catalan wordlist extracted from catalan-m.dic.
+
+Changelog, Copyright:
+---------------------
+While found under aspell dir seems to apply to all other stuff.
+
+ -- Agustin Martin Domingo <agmartin@debian.org>, Sun, 17 Jun 2012 14:26:40 +0200

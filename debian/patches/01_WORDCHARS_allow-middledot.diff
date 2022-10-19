@@ -1,0 +1,31 @@
+Author: Agustin Martin Domingo <agmartin@debian.org>
+Description: Allow middledot be part of a word as WORDCHARS. Allows l geminada workaround.
+Bug-Debian: http://bugs.debian.org/623367
+Applied-Upstream: https://github.com/Softcatala/corrector-ortografic/commit/e0795f402497c169c5312e66462158460442a6e6
+
+Index: softcatala-spell/catalan-m.aff
+===================================================================
+--- softcatala-spell.orig/catalan-m.aff	2014-09-19 16:42:13.073868788 +0200
++++ softcatala-spell/catalan-m.aff	2014-09-19 16:43:37.717792262 +0200
+@@ -59,7 +59,7 @@
+ 
+ TRY easirtocnlumdpgvfbqjwxyzhàèéíïòóúüç·-'
+ 
+-WORDCHARS .-'
++WORDCHARS .-'·
+ 
+ REP 48
+ REP a à
+Index: softcatala-spell/catalan-valencian-m.aff
+===================================================================
+--- softcatala-spell.orig/catalan-valencian-m.aff	2014-09-19 16:42:13.073868788 +0200
++++ softcatala-spell/catalan-valencian-m.aff	2014-09-19 16:43:37.717792262 +0200
+@@ -59,7 +59,7 @@
+ 
+ TRY easirtocnlumdpgvfbqjwxyzhàèéíïòóúüç·-'
+ 
+-WORDCHARS .-'
++WORDCHARS .-'·
+ 
+ REP 48
+ REP a à
